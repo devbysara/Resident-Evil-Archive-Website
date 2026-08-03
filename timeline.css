@@ -1,0 +1,217 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --void: #100c0e;
+    --void2: #1a1416;
+    --grey: #0e0e0e;
+    --blood: #7a1f1f;
+    --blood-light: #b8453f;
+    --moss: #3d4a35;
+    --moss-light: #6b7a5e;
+    --bone: #d8cfc0;
+    --text-dim: #8a7d70;
+    --line: rgba(216,207,192,0.1);
+}
+
+::selection {
+    background: var(--blood);
+}
+
+body {
+    font-family: 'cinzel', Arial, Helvetica, sans-serif;
+}
+
+nav {
+    padding: 2vw 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--void);
+    border-bottom: 1px solid var(--line);
+}
+
+.header-title a {
+    text-decoration: none;
+    color: var(--blood-light);
+    font-weight: 600;
+    font-size: clamp(1rem, 3vw, 2rem);
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 28%;
+    list-style: none;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: var(--text-dim);
+    transition: color 0.4s ease;
+    font-weight: 500;
+}
+
+.header-nav a:hover {
+    color: var(--bone);
+}
+
+.header-main {
+    background:
+    radial-gradient(ellipse at center, rgba(122,31,31,0.08) 0%, transparent 60%),
+    var(--void);
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+    margin-bottom: -1%;
+}
+
+.header-main::before {
+    position: absolute;
+    content: '';
+    inset: 0;
+    background:repeating-linear-gradient(115deg, transparent 0px, transparent 140px, rgba(216,207,192,0.015) 140px, rgba(216,207,192,0.015) 142px);
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    min-height: 100vh;
+    position: relative;
+    z-index: 2;
+}
+
+.header-text h1 {
+    width: 50%;
+    font-size: clamp(1rem, 3vw, 3rem);
+    color: var(--text-dim);
+}
+
+.header-text hr {
+    width: 8%;
+    border: 1px solid var(--moss-light);
+}
+
+.header-text p {
+    width: 35%;
+    color: var(--blood-light);
+    font-weight: 600;
+    font-size: clamp(1rem, 1.8vw, 2rem);
+    font-style: italic;
+    font-family: 'Crimson Text', Arial, Helvetica, sans-serif;
+}
+
+main {
+    background:
+    radial-gradient(ellipse at center, rgba(122,31,31,0.08) 0%, transparent 60%),
+    var(--void);
+    padding: 0 0 8vw 0;
+}
+
+.main-title {
+    text-align: center;
+    padding: 8vw 0;
+    color: var(--text-dim);
+    font-size: 1.4rem;
+}
+
+.spine {
+    position: relative;
+    max-height: auto;
+    margin: 0 auto;
+}
+
+.spine::before {
+    position: absolute;
+    content: '';
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, var(--line) 10%, var(--line) 90%, transparent);
+}
+
+.timeline-content {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    z-index: 1;
+    padding: 0 7vw;
+}
+
+.timeline {
+    grid-column: 1 / -1;
+    width: 45%;
+    padding: 2vw;
+    border: 1px solid transparent;
+    transition: border 0.3s ease;
+}
+
+.timeline > * {
+    margin-bottom: 0.2rem;
+}
+
+.timeline span {
+    display: block;
+    color: var(--blood-light);
+    font-family: 'Crimson Text', Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+}
+
+.timeline p {
+    color: var(--text-dim);
+    font-family: 'Crimson Text', Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+}
+
+.timeline h2 {
+    color: var(--bone);
+}
+
+.timeline:nth-of-type(3n+1):hover {
+    border-bottom: 1px solid var(--line);
+}
+
+.timeline:nth-of-type(3n+3):hover {
+    border-bottom: 1px solid var(--line);
+}
+
+.timeline:nth-of-type(3n+1) {
+    justify-self: start;
+    text-align: right;
+}
+
+.timeline:nth-of-type(3n+3) {
+    justify-self: end;
+    text-align: left;
+}
+
+.timeline-node {
+    grid-column: 2;
+    justify-self: center;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--void);
+    border: 2px solid var(--bone);
+}
+
+footer {
+    padding: 1.8vw;
+    text-align: center;
+    background: var(--void);
+    color: var(--bone);
+    border-top: 1px solid var(--line);
+}
+
+footer span {
+    color: var(--blood-light);
+    font-weight: 500;
+}
